@@ -229,21 +229,21 @@ uploadArchives {
         repositories.mavenDeployer.pom = generatePom()
     }
 
-    repositories.mavenDeployer {
-        configuration = configurations.archives
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-        if (publishReleases) {
-            repository(url: "$sonatypeRepositoryUrl") {
-                authentication(userName: sonatypeUsername, password: sonatypePassword);
-            }
-        }
-
-        if (publishSnapshots) {
-            snapshotRepository(url: "$sonatypeSnapshotsRepositoryUrl") {
-                authentication(userName: sonatypeUsername, password: sonatypePassword);
-            }
-        }
-    }
+//    repositories.mavenDeployer {
+//        configuration = configurations.archives
+//        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//
+//        if (publishReleases) {
+//            repository(url: "$sonatypeRepositoryUrl") {
+//                authentication(userName: sonatypeUsername, password: sonatypePassword);
+//            }
+//        }
+//
+//        if (publishSnapshots) {
+//            snapshotRepository(url: "$sonatypeSnapshotsRepositoryUrl") {
+//                authentication(userName: sonatypeUsername, password: sonatypePassword);
+//            }
+//        }
+//    }
 }
 

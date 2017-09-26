@@ -54,10 +54,13 @@ allprojects {
     apply plugin: "org.standardout.versioneye"
     apply plugin: "nebula.lint"
 
+    println "Project name : $project.name"
     if (project.name == "cas-server-support-bom") {
         println "Skipping pom generation for [$project.name], letting it create <dependency-management> entries."
+        apply from: rootProject.file("../cloudbees-release/release.gradle")
     } else {
-        apply from: rootProject.file("gradle/maven.gradle")
+        apply from: rootProject.file("../cloudbees-release/release.gradle")
+//        apply from: rootProject.file("gradle/maven.gradle")
     }
     
     gradleLint.rules = ["dependency-parentheses", "dependency-tuple"]
